@@ -56,7 +56,14 @@ class Personaje():
     def __eq__(self, other):
         return self.player_level == other.level
     
-
+    def get_probabilidades(self, p_player):
+        if self.__lt__(p_player):
+            v_prob = 0.33
+        elif self.__gt__(p_player):
+            v_prob = 0.66
+        else: 
+            v_prob = 0.5
+        return v_prob
 
         
 
