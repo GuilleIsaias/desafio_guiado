@@ -43,7 +43,9 @@ class Personaje():
                 self.player_level -= 1
         elif (new_exp)/100 >= 1:
             self.player_level = math.floor((new_exp)/100)
-        self.exp = new_exp
+            self.exp = new_exp%100
+        else:
+            self.exp = new_exp%100
 
     def __lt__(self, other):
        return self.player_level < other.level
