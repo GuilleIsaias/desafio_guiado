@@ -7,10 +7,13 @@ n_player = input("Por favor indique el nombre de su personaje:\n")
 player = Personaje(n_player)
 ORCO = Personaje("Orco")
 s = Script()
-status_player = f"NOMBRE: {player.get_nombre}\tNIVEL: {player.get_player_lvl}\tEXP: {player.exp}"
-ORCO_status = f"NOMBRE: {ORCO.get_nombre}\tNIVEL: {ORCO.get_player_lvl}\tEXP: {ORCO.get_exp}"
-print(status_player)
-print(s.orco_aparece)
+
+def print_status():
+        print(f"NOMBRE: {player.get_nombre}\tNIVEL: {player.get_player_lvl}\tEXP: {player.get_exp}")
+        print(f"NOMBRE: {ORCO.get_nombre}\tNIVEL: {ORCO.get_player_lvl}\tEXP: {ORCO.get_exp}")
+
+print_status()
+
 print(s.probabilidades50)
 option = int(input("¿Que deseas hacer?\n1. Atacar \n2. Huir\n"))
 if option == 1:
@@ -24,8 +27,9 @@ if option == 1:
             print(s.derrota)
             player.lvl_up(-30)
             ORCO.lvl_up(50)
-        print(status_player)
-        print(ORCO_status)
+
+        print_status()
+
         if player.get_player_lvl == ORCO.get_player_lvl:
             print(s.probabilidades50)
         elif player.get_player_lvl > ORCO.get_player_lvl:

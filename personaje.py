@@ -34,17 +34,15 @@ class Personaje():
     def s_exp(self, exp):
         self.exp = exp
 
-    def lvl_up(self, p_exp):
+    def lvl_up(self, p_exp: int):
         new_exp = p_exp + self.exp
         if new_exp < 0:
             self.exp = 0 
             if self.player_level > 1:
                 self.exp = 100+new_exp
                 self.player_level -= 1
-        elif (new_exp)/100 >= 1:
-            self.player_level = math.floor((new_exp)/100)
-            self.exp = new_exp%100
         else:
+            self.player_level += new_exp//100
             self.exp = new_exp%100
 
     def __lt__(self, other):
